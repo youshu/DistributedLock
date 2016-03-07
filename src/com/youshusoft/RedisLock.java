@@ -6,6 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.LockSupport;
+
 import redis.clients.jedis.Jedis;
 
 public class RedisLock implements Lock {
@@ -108,35 +109,32 @@ public class RedisLock implements Lock {
 	    }
 	    @Override
 	    public void lockInterruptibly() throws InterruptedException {
-	        // TODO Auto-generated method stub
+	    	throw new UnsupportedOperationException();
 
 	    }
 
 	    @Override
 	    public boolean tryLock() {
-	        // TODO Auto-generated method stub
-	        return false;
+	    	throw new UnsupportedOperationException();
 	    }
 
 	    @Override
 	    public boolean tryLock(long time, TimeUnit unit)
 	            throws InterruptedException {
-	        // TODO Auto-generated method stub
-	        return false;
+	    	throw new UnsupportedOperationException();
 	    }
 
 
 	    @Override
 	    public Condition newCondition() {
-	        // TODO Auto-generated method stub
-	        return null;
+	    	throw new UnsupportedOperationException();
 	    }
 	    private boolean cas(int expect,int update){
 	    	System.out.println("cas "+ expect +","+ update +" " + Thread.currentThread());
 	    	return atomic.compareAndSet(expect, update);
 	    }
 	    
-	    public void sleep(long waitTime){
+	    private void sleep(long waitTime){
 	    	try {
 				Thread.sleep(waitTime);
 			} catch (InterruptedException e1) {
