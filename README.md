@@ -1,2 +1,2 @@
 # java分布式锁
-使用cas，LockSupport，ConcurrentLinkedQueue实现。
+使用redis，cas，LockSupport，ConcurrentLinkedQueue实现。
